@@ -1,7 +1,6 @@
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.Reader;
 import java.lang.Math;
 import java.text.DecimalFormat;
 
