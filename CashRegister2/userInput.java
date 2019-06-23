@@ -7,7 +7,6 @@ import java.lang.Math;
 class userInput {
     static double total;
     static ArrayList<Item> items = new ArrayList<Item>();
-    static Item newItem;
 
     public static void main(String[] args) {
         String name, keepGoing;
