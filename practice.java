@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class practice {
 
@@ -30,6 +31,21 @@ class practice {
         listOfNums.forEach((temp) -> {
             System.out.println(temp);
         });
+
+        Scanner input;
+        int a = 0;
+
+        while (true) {
+            try {
+                System.out.println("please enter an integer value:");
+                input = new Scanner(System.in);
+                a = input.nextInt();
+                break;
+            } catch (Exception e) {
+                System.out.println("please enter the an appropriate value");
+            }
+        }
+        System.out.println("You entered " + a);
 
     }
 }

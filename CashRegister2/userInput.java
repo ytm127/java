@@ -12,6 +12,7 @@ class userInput {
     public static void main(String[] args) {
         String name, keepGoing, location = "Washington DC";
         double price, grandTotal, tax = .06;
+        double taxRate = tax * 100;
         int quantity;
         Item newItem;
         Scanner input = new Scanner(System.in);
@@ -19,10 +20,30 @@ class userInput {
         do {
             System.out.println("Enter name of item: ");
             name = input.next();
-            System.out.println("Enter the price: ");
-            price = input.nextDouble();
-            System.out.println("Enter the quantity: ");
-            quantity = input.nextInt();
+            // try catch for price input
+            while (true) {
+                try {
+                    System.out.println("Enter the price: ");
+                    input = new Scanner(System.in);
+                    price = input.nextDouble();
+                    break;
+                } catch (Exception e) {
+                    System.out.println("Please enter a number!");
+                }
+            }
+
+            // try catch for quantity input
+            while (true) {
+                try {
+                    System.out.println("Enter the quantity: ");
+                    input = new Scanner(System.in);
+                    quantity = input.nextInt();
+                    break;
+                } catch (Exception e) {
+                    System.out.println("Please enter an integer!");
+                }
+            }
+
             newItem = new Item();
             newItem.name = name;
             newItem.price = price;
@@ -43,7 +64,7 @@ class userInput {
             System.out.println(temp.quantity + "  " + temp.name + "  " + df2.format(temp.quantity * temp.price));
         });
         System.out.println("\n\nSub total:   $" + df2.format(total));
-        System.out.println("Sales tax in " + location + " is " + (tax * 100) + "%");
+        System.out.println("Sales tax in " + location + " is " + taxRate + "%");
         System.out.println("Tax:   $" + df2.format((total * tax)));
         grandTotal = total + (total * tax);
         System.out.println("Total:   $" + df2.format(grandTotal));
